@@ -46,7 +46,7 @@ const RequestIdlePromise = () => {
   </>
 );
 
-const requestIdleResourceReject = makeRequestIdleResource();
+const requestIdleResourceReject = makeRequestIdleResource(false);
 
 const RequestIdlePromiseReject = () => {
   requestIdleResourceReject();
@@ -58,25 +58,33 @@ export const reject = () => (
     <h1>
       <code>{title}</code> resolve
     </h1>
-    <Suspense fallback={"Loading when idle..."}>
-      <RequestIdlePromiseReject />
-    </Suspense>
+    <ErrorBoundary
+      FallbackComponent={() => "Rejected once idle! Refresh page to see again."}
+    >
+      <Suspense fallback={"Loading when idle until timeout..."}>
+        <RequestIdlePromiseReject />
+      </Suspense>
+    </ErrorBoundary>
     <hr />
     <code>
       <pre>
         {`
 import makeRequestIdleResource from "react-suss/makeRequestIdleResource";
 
-const requestIdleResourceReject = makeRequestIdleResource();
+const requestIdleResourceReject = makeRequestIdleResource(false);
 
 const RequestIdlePromiseReject = () => {
   requestIdleResourceReject();
   return <div>Ready! Refresh page to see again.</div>;
 };
 
-<Suspense fallback={"Loading when idle..."}>
-  <RequestIdlePromiseReject />
-</Suspense>
+<ErrorBoundary
+  FallbackComponent={() => "Rejected once idle! Refresh page to see again."}
+>
+  <Suspense fallback={"Loading when idle until timeout..."}>
+    <RequestIdlePromiseReject />
+  </Suspense>
+</ErrorBoundary>
     `}
       </pre>
     </code>
