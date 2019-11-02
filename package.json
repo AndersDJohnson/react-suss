@@ -27,6 +27,7 @@
     "@babel/preset-typescript": "^7.6.0",
     "@storybook/addon-actions": "^5.2.5",
     "@storybook/addon-links": "^5.2.5",
+    "@storybook/addon-storysource": "^5.2.5",
     "@storybook/addons": "^5.2.5",
     "@storybook/react": "^5.2.5",
     "@types/requestidlecallback": "^0.3.1",
@@ -37,8 +38,5 @@
     "react-dom": "0.0.0-experimental-f6b8d31a7",
     "react-error-boundary": "^1.2.5",
     "typescript": "^3.6.4"
-  },
-  "dependencies": {
-    "@storybook/addon-storysource": "^5.2.5"
   }
 }
