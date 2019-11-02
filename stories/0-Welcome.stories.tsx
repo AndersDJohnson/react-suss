@@ -15,6 +15,15 @@ export const intro = () => (
     </p>
 
     <p>
+      As of October 2019, you can only use these with experimental builds of
+      React. See{" "}
+      <a href="https://reactjs.org/docs/concurrent-mode-adoption.html">
+        Adopting Concurrent Mode (Experimental) at ReactJS.org
+      </a>
+      .
+    </p>
+
+    <p>
       As you explore each resource, you may want to refresh the page, since
       resources in these stories are created on page load, and may have already
       settled by the time you view the story.
