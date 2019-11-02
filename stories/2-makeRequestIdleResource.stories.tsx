@@ -11,7 +11,7 @@ export default {
 
 const requestIdleResource = makeRequestIdleResource();
 
-const RequestIdlePromise = () => {
+const RequestIdle = () => {
   requestIdleResource();
   return <div>Ready! Refresh page to see again.</div>;
 };
@@ -22,7 +22,7 @@ export const resolve = () => (
       <code>{title}</code> resolve
     </h1>
     <Suspense fallback={"Loading when idle..."}>
-      <RequestIdlePromise />
+      <RequestIdle />
     </Suspense>
     <hr />
     <code>
@@ -32,13 +32,13 @@ import makeRequestIdleResource from "react-suss/makeRequestIdleResource";
 
 const requestIdleResource = makeRequestIdleResource();
 
-const RequestIdlePromise = () => {
+const RequestIdle = () => {
   requestIdleResource();
   return <div>Ready! Refresh page to see again.</div>;
 };
 
 <Suspense fallback={"Loading when idle..."}>
-  <RequestIdlePromise />
+  <RequestIdle />
 </Suspense>
     `}
       </pre>
@@ -48,7 +48,7 @@ const RequestIdlePromise = () => {
 
 const requestIdleResourceReject = makeRequestIdleResource(false);
 
-const RequestIdlePromiseReject = () => {
+const RequestIdleReject = () => {
   requestIdleResourceReject();
   return <div>Ready! Refresh page to see again.</div>;
 };
@@ -62,7 +62,7 @@ export const reject = () => (
       FallbackComponent={() => "Rejected once idle! Refresh page to see again."}
     >
       <Suspense fallback={"Loading when idle until timeout..."}>
-        <RequestIdlePromiseReject />
+        <RequestIdleReject />
       </Suspense>
     </ErrorBoundary>
     <hr />
@@ -73,7 +73,7 @@ import makeRequestIdleResource from "react-suss/makeRequestIdleResource";
 
 const requestIdleResourceReject = makeRequestIdleResource(false);
 
-const RequestIdlePromiseReject = () => {
+const RequestIdleReject = () => {
   requestIdleResourceReject();
   return <div>Ready! Refresh page to see again.</div>;
 };
@@ -82,7 +82,7 @@ const RequestIdlePromiseReject = () => {
   FallbackComponent={() => "Rejected once idle! Refresh page to see again."}
 >
   <Suspense fallback={"Loading when idle until timeout..."}>
-    <RequestIdlePromiseReject />
+    <RequestIdleReject />
   </Suspense>
 </ErrorBoundary>
     `}
@@ -95,7 +95,7 @@ const requestIdleResourceTimeout = makeRequestIdleResource(true, {
   timeout: 10
 });
 
-const RequestIdlePromiseTimeout = () => {
+const RequestIdleTimeout = () => {
   requestIdleResourceTimeout();
   return <div>Ready! Refresh page to see again.</div>;
 };
@@ -109,7 +109,7 @@ export const timeout = () => (
       FallbackComponent={() => "Timed out! Refresh page to see again."}
     >
       <Suspense fallback={"Loading when idle until timeout..."}>
-        <RequestIdlePromiseTimeout />
+        <RequestIdleTimeout />
       </Suspense>
     </ErrorBoundary>
     <hr />
@@ -122,7 +122,7 @@ const requestIdleResourceTimeout = makeRequestIdleResource(true, {
   timeout: 10
 });
 
-const RequestIdlePromiseTimeout = () => {
+const RequestIdleTimeout = () => {
   requestIdleResourceTimeout();
   return <div>Ready! Refresh page to see again.</div>;
 };
@@ -131,7 +131,7 @@ const RequestIdlePromiseTimeout = () => {
   FallbackComponent={() => "Timed out! Refresh page to see again."}
 >
   <Suspense fallback={"Loading when idle until timeout..."}>
-    <RequestIdlePromiseTimeout />
+    <RequestIdleTimeout />
   </Suspense>
 </ErrorBoundary>
     `}

@@ -9,9 +9,9 @@ export default {
   title
 };
 
-const setTimeoutResource = makeSetTimeoutResource(5000);
+const setTimeoutResource = makeSetTimeoutResource(3000);
 
-const SetTimeoutPromise = () => {
+const SetTimeout = () => {
   setTimeoutResource();
   return <div>Ready! Refresh page to see again.</div>;
 };
@@ -21,8 +21,8 @@ export const resolve = () => (
     <h1>
       <code>{title}</code> resolve
     </h1>
-    <Suspense fallback={"Loading after 5 seconds..."}>
-      <SetTimeoutPromise />
+    <Suspense fallback={"Loading after 3 seconds..."}>
+      <SetTimeout />
     </Suspense>
     <hr />
     <code>
@@ -30,15 +30,15 @@ export const resolve = () => (
         {`
 import makeSetTimeoutResource from "react-suss/makeSetTimeoutResource";
 
-const setTimeoutResource = makeSetTimeoutResource(5000);
+const setTimeoutResource = makeSetTimeoutResource(3000);
 
-const SetTimeoutPromise = () => {
+const SetTimeout = () => {
   setTimeoutResource();
   return <div>Ready! Refresh page to see again.</div>;
 };
 
-<Suspense fallback={"Loading after 5 seconds..."}>
-  <SetTimeoutPromise />
+<Suspense fallback={"Loading after 3 seconds..."}>
+  <SetTimeout />
 </Suspense>
     `}
       </pre>
@@ -46,9 +46,9 @@ const SetTimeoutPromise = () => {
   </>
 );
 
-const setTimeoutResourceReject = makeSetTimeoutResource(5000, false);
+const setTimeoutResourceReject = makeSetTimeoutResource(3000, false);
 
-const SetTimeoutPromiseReject = () => {
+const SetTimeoutReject = () => {
   setTimeoutResourceReject();
   return <div>Ready! Refresh page to see again.</div>;
 };
@@ -59,8 +59,8 @@ export const reject = () => (
       <code>{title}</code> reject
     </h1>
     <ErrorBoundary FallbackComponent={() => "Rejected after timeout! Refresh page to see again."}>
-      <Suspense fallback={"Loading after 5 seconds..."}>
-        <SetTimeoutPromiseReject />
+      <Suspense fallback={"Loading after 3 seconds..."}>
+        <SetTimeoutReject />
       </Suspense>
     </ErrorBoundary>
     <hr />
@@ -69,16 +69,16 @@ export const reject = () => (
         {`
 import makeSetTimeoutResource from "react-suss/makeSetTimeoutResource";
 
-const setTimeoutResourceReject = makeSetTimeoutResource(5000, false);
+const setTimeoutResourceReject = makeSetTimeoutResource(3000, false);
 
-const SetTimeoutPromiseReject = () => {
+const SetTimeoutReject = () => {
   setTimeoutResourceReject();
   return <div>Ready! Refresh page to see again.</div>;
 };
 
 <ErrorBoundary FallbackComponent={() => "Rejected after timeout! Refresh page to see again."}>
-  <Suspense fallback={"Loading after 5 seconds..."}>
-    <SetTimeoutPromiseReject />
+  <Suspense fallback={"Loading after 3 seconds..."}>
+    <SetTimeoutReject />
   </Suspense>
 </ErrorBoundary>
     `}
