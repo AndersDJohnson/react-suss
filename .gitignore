@@ -1,4 +1,7 @@
 dist
+/make*
+/util
+/index.js
 storybook-static
 .idea
 
