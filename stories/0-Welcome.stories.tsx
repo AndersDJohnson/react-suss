@@ -21,6 +21,33 @@ export const intro = () => (
     </p>
 
     <p>
+      <a href="https://www.npmjs.com/package/react-suss">
+        <img src="https://img.shields.io/npm/v/react-suss" alt="npm" />
+      </a>
+    </p>
+
+    <p>
+      <a
+        href="https://copyhaste.com/c?t=npm%20add%20react-suss"
+        title="npm add react-suss (copy)"
+      >
+        <img
+          src="https://copyhaste.com/i?t=npm%20add%20react-suss"
+          alt="npm add react-suss (copy)"
+        />
+      </a>
+      <a
+        href="https://copyhaste.com/c?t=yarn%20add%20react-suss"
+        title="yarn add react-suss (copy)"
+      >
+        <img
+          src="https://copyhaste.com/i?t=yarn%20add%20react-suss"
+          alt="yarn add react-suss (copy)"
+        />
+      </a>
+    </p>
+
+    <p>
       As of October 2019, it may be best to use these with the experimental
       builds of React. See{" "}
       <a href="https://reactjs.org/docs/concurrent-mode-adoption.html">
