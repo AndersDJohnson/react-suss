@@ -9,6 +9,23 @@ export default {
   title
 };
 
+export const intro = () => (
+  <>
+    <h1>
+      <code>{title}</code>
+    </h1>
+
+    <p>
+      A React Suspense resource to delay rendering until the browser is idle.
+    </p>
+
+    <p>
+      You could use this as a way to deprioritize the rendering of certain
+      components as a poor man's scheduling mechanism.
+    </p>
+  </>
+);
+
 const requestIdleResource = makeRequestIdleResource();
 
 const RequestIdle = () => {

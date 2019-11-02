@@ -9,6 +9,22 @@ export default {
   title
 };
 
+export const intro = () => (
+  <>
+    <h1>
+      <code>{title}</code>
+    </h1>
+
+    <p>A React Suspense resource to delay rendering until after a timeout.</p>
+
+    <p>
+      You could use this as a poor man's prioritization or scheduling mechanism,
+      e.g., delay rendering of content below the fold to leave more system
+      resources for rendering content above the fold first.
+    </p>
+  </>
+);
+
 const setTimeoutResource = makeSetTimeoutResource(3000);
 
 const SetTimeout = () => {
@@ -58,7 +74,11 @@ export const reject = () => (
     <h1>
       <code>{title}</code> reject
     </h1>
-    <ErrorBoundary FallbackComponent={() => "Rejected after timeout! Refresh page to see again."}>
+    <ErrorBoundary
+      FallbackComponent={() =>
+        "Rejected after timeout! Refresh page to see again."
+      }
+    >
       <Suspense fallback={"Loading after 3 seconds..."}>
         <SetTimeoutReject />
       </Suspense>

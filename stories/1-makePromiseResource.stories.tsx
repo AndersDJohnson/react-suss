@@ -9,6 +9,23 @@ export default {
   title
 };
 
+export const intro = () => (
+  <>
+    <h1>
+      <code>{title}</code>
+    </h1>
+
+    <p>
+      A React Suspense resource you can create from any <code>Promise</code>.
+    </p>
+
+    <p>
+      For example, you could give this a call to <code>fetch</code> that
+      requests your data.
+    </p>
+  </>
+);
+
 const promiseResource = makePromiseResource(
   new Promise(resolve => setTimeout(() => resolve("Hello"), 3000))
 );

@@ -9,6 +9,10 @@ export default {
 
 export const intro = () => (
   <>
+    <h1>
+      <code>react-suss</code>
+    </h1>
+
     <p>
       <code>react-suss</code> is a collection of resources for use with React
       Suspense.
