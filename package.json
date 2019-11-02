@@ -10,7 +10,12 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
-  "keywords": [],
+  "keywords": [
+    "react",
+    "react-suspense",
+    "suspense",
+    "suspense-resources"
+  ],
   "author": "Anders D. Johnson",
   "license": "ISC",
   "devDependencies": {
