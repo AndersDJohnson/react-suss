@@ -1,4 +1,6 @@
-const makeResourceFromPromise = promise => {
+type Resource<ResolveType> = () => ResolveType;
+
+const makeResourceFromPromise = <ResolveType>(promise: Promise<ResolveType>): Resource<ResolveType> => {
   let value;
   let error;
   let resolved;

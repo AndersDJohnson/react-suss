@@ -1,5 +1,5 @@
 const makeRequestAnimationFramePromise = (resolves = true) =>
-  new Promise((resolve, reject) =>
+  new Promise<DOMHighResTimeStamp>((resolve, reject) =>
     requestAnimationFrame(resolves ? resolve : reject)
   );
 

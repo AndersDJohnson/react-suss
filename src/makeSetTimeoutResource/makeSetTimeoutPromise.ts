@@ -1,5 +1,5 @@
 const makeSetTimeoutPromise = (timeout, resolves = true) =>
-  new Promise((resolve, reject) =>
+  new Promise<void>((resolve, reject) =>
     setTimeout(resolves ? resolve : reject, timeout)
   );
 
