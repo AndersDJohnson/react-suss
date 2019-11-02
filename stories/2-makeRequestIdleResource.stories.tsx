@@ -9,83 +9,125 @@ export default {
   title
 };
 
-let resolve;
-{
-  const requestIdleResource = makeRequestIdleResource();
+const requestIdleResource = makeRequestIdleResource();
 
-  const RequestIdlePromise = ({ children }) => {
-    requestIdleResource();
+const RequestIdlePromise = () => {
+  requestIdleResource();
+  return <div>Ready! Refresh page to see again.</div>;
+};
 
-    return children;
-  };
+export const resolve = () => (
+  <>
+    <h1>
+      <code>{title}</code> resolve
+    </h1>
+    <Suspense fallback={"Loading when idle..."}>
+      <RequestIdlePromise />
+    </Suspense>
+    <hr />
+    <code>
+      <pre>
+        {`
+import makeRequestIdleResource from "react-suss/makeRequestIdleResource";
 
-  resolve = () => (
-    <>
-      <h1>
-        <code>{title}</code> resolve
-      </h1>
-      <Suspense fallback={"Loading when idle..."}>
-        <RequestIdlePromise>
-          Ready! Refresh page to see again.
-        </RequestIdlePromise>
+const requestIdleResource = makeRequestIdleResource();
+
+const RequestIdlePromise = () => {
+  requestIdleResource();
+  return <div>Ready! Refresh page to see again.</div>;
+};
+
+<Suspense fallback={"Loading when idle..."}>
+  <RequestIdlePromise />
+</Suspense>
+    `}
+      </pre>
+    </code>
+  </>
+);
+
+const requestIdleResourceReject = makeRequestIdleResource();
+
+const RequestIdlePromiseReject = () => {
+  requestIdleResourceReject();
+  return <div>Ready! Refresh page to see again.</div>;
+};
+
+export const reject = () => (
+  <>
+    <h1>
+      <code>{title}</code> resolve
+    </h1>
+    <Suspense fallback={"Loading when idle..."}>
+      <RequestIdlePromiseReject />
+    </Suspense>
+    <hr />
+    <code>
+      <pre>
+        {`
+import makeRequestIdleResource from "react-suss/makeRequestIdleResource";
+
+const requestIdleResourceReject = makeRequestIdleResource();
+
+const RequestIdlePromiseReject = () => {
+  requestIdleResourceReject();
+  return <div>Ready! Refresh page to see again.</div>;
+};
+
+<Suspense fallback={"Loading when idle..."}>
+  <RequestIdlePromiseReject />
+</Suspense>
+    `}
+      </pre>
+    </code>
+  </>
+);
+
+const requestIdleResourceTimeout = makeRequestIdleResource(true, {
+  timeout: 10
+});
+
+const RequestIdlePromiseTimeout = () => {
+  requestIdleResourceTimeout();
+  return <div>Ready! Refresh page to see again.</div>;
+};
+
+export const timeout = () => (
+  <>
+    <h1>
+      <code>{title}</code> timeout
+    </h1>
+    <ErrorBoundary
+      FallbackComponent={() => "Timed out! Refresh page to see again."}
+    >
+      <Suspense fallback={"Loading when idle until timeout..."}>
+        <RequestIdlePromiseTimeout />
       </Suspense>
-    </>
-  );
-}
+    </ErrorBoundary>
+    <hr />
+    <code>
+      <pre>
+        {`
+import makeRequestIdleResource from "react-suss/makeRequestIdleResource";
 
-let reject;
-{
-  const requestIdleResource = makeRequestIdleResource();
+const requestIdleResourceTimeout = makeRequestIdleResource(true, {
+  timeout: 10
+});
 
-  const RequestIdlePromise = ({ children }) => {
-    requestIdleResource();
+const RequestIdlePromiseTimeout = () => {
+  requestIdleResourceTimeout();
+  return <div>Ready! Refresh page to see again.</div>;
+};
 
-    return children;
-  };
-
-  reject = () => (
-    <>
-      <h1>
-        <code>{title}</code> resolve
-      </h1>
-      <Suspense fallback={"Loading when idle..."}>
-        <RequestIdlePromise>
-          Ready! Refresh page to see again.
-        </RequestIdlePromise>
-      </Suspense>
-    </>
-  );
-}
-
-let timeout;
-{
-  const requestIdleResource = makeRequestIdleResource(true, {
-    timeout: 1000
-  });
-
-  const RequestIdlePromise = ({ children }) => {
-    requestIdleResource();
-
-    return children;
-  };
-
-  timeout = () => (
-    <>
-      <h1>
-        <code>{title}</code> timeout
-      </h1>
-
-      <ErrorBoundary
-        FallbackComponent={() => "Timed out! Refresh page to see again."}
-      >
-        <Suspense fallback={"Loading after 5 seconds..."}>
-          <RequestIdlePromise>
-            Ready! Refresh page to see again.
-          </RequestIdlePromise>
-        </Suspense>
-      </ErrorBoundary>
-    </>
-  );
-}
-
-export { resolve, reject, timeout };
+<ErrorBoundary
+  FallbackComponent={() => "Timed out! Refresh page to see again."}
+>
+  <Suspense fallback={"Loading when idle until timeout..."}>
+    <RequestIdlePromiseTimeout />
+  </Suspense>
+</ErrorBoundary>
+    `}
+      </pre>
+    </code>
+  </>
+);
