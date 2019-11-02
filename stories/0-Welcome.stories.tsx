@@ -10,7 +10,9 @@ export default {
 export const intro = () => (
   <>
     <h1>
-      <code>react-suss</code>
+      <a href="https://github.com/AndersDJohnson/react-suss">
+        <code>react-suss</code>
+      </a>
     </h1>
 
     <p>
@@ -31,6 +33,12 @@ export const intro = () => (
       As you explore each resource, you may want to refresh the page, since
       resources in these stories are created on page load, and may have already
       settled by the time you view the story.
+    </p>
+
+    <p>
+      <a href="https://github.com/AndersDJohnson/react-suss">
+        Source at GitHub
+      </a>
     </p>
   </>
 );
