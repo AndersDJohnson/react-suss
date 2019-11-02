@@ -1,7 +1,13 @@
 {
   "compilerOptions": {
-    "lib": ["es2015", "dom"],
+    "lib": ["es2017", "dom"],
+    "target": "es2017",
     "esModuleInterop": true,
-    "jsx": "preserve"
-  }
+    "jsx": "preserve",
+    "emitDeclarationOnly": true,
+    "declaration": true,
+    "declarationDir": "dist"
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
 }
