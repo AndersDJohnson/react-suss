@@ -10,12 +10,17 @@ export default {
 };
 
 const promiseResource = makePromiseResource(
-  new Promise(resolve => setTimeout(resolve, 3000))
+  new Promise(resolve => setTimeout(() => resolve("Hello"), 3000))
 );
 
 const PromiseResource = () => {
-  promiseResource();
-  return <div>Resolved! Refresh page to see again.</div>;
+  const value = promiseResource();
+  return (
+    <div>
+      Resolved with value <code>{JSON.stringify(value)}</code>! Refresh page to
+      see again.
+    </div>
+  );
 };
 
 export const resolve = () => (
@@ -33,12 +38,17 @@ export const resolve = () => (
 import makePromiseResource from "react-suss/makePromiseResource";
 
 const promiseResource = makePromiseResource(
-  new Promise(resolve => setTimeout(resolve, 3000))
+  new Promise(resolve => setTimeout(() => resolve("Hello"), 3000))
 );
 
 const PromiseResource = () => {
-  promiseResource();
-  return <div>Resolved! Refresh page to see again.</div>;
+  const value = promiseResource();
+  return (
+    <div>
+      Resolved with value <code>{JSON.stringify(value)}</code>! Refresh page to
+      see again.
+    </div>
+  );
 };
 
 <Suspense fallback={"Waiting for promise..."}>
@@ -51,7 +61,9 @@ const PromiseResource = () => {
 );
 
 const promiseResourceReject = makePromiseResource(
-  new Promise((resolve, reject) => setTimeout(reject, 3000))
+  new Promise((resolve, reject) =>
+    setTimeout(() => reject(new Error("Oops")), 3000)
+  )
 );
 
 const PromiseResourceReject = () => {
@@ -65,7 +77,12 @@ export const reject = () => (
       <code>{title}</code> reject
     </h1>
     <ErrorBoundary
-      FallbackComponent={() => "Rejected! Refresh page to see again."}
+      FallbackComponent={({ error }) => (
+        <>
+          Rejected with error <code>{error.message}</code>! Refresh page to see
+          again.
+        </>
+      )}
     >
       <Suspense fallback={"Waiting for promise..."}>
         <PromiseResourceReject />
@@ -78,7 +95,9 @@ export const reject = () => (
 import makePromiseResource from "react-suss/makePromiseResource";
 
 const promiseResourceReject = makePromiseResource(
-  new Promise((resolve, reject) => setTimeout(reject, 3000))
+  new Promise((resolve, reject) =>
+    setTimeout(() => reject(new Error("Oops")), 3000)
+  )
 );
 
 const PromiseResourceReject = () => {
@@ -86,7 +105,14 @@ const PromiseResourceReject = () => {
   return <div>Resolved! Refresh page to see again.</div>;
 };
 
-<ErrorBoundary FallbackComponent={() => "Rejected! Refresh page to see again."}>
+<ErrorBoundary
+  FallbackComponent={({ error }) => (
+    <>
+      Rejected with error <code>{error.message}</code>! Refresh page to see
+      again.
+    </>
+  )}
+>
   <Suspense fallback={"Waiting for promise..."}>
     <PromiseResourceReject />
   </Suspense>
