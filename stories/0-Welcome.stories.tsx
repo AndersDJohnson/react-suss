@@ -21,8 +21,8 @@ export const intro = () => (
     </p>
 
     <p>
-      As of October 2019, you can only use these with experimental builds of
-      React. See{" "}
+      As of October 2019, it may be best to use these with the experimental
+      builds of React. See{" "}
       <a href="https://reactjs.org/docs/concurrent-mode-adoption.html">
         Adopting Concurrent Mode (Experimental) at ReactJS.org
       </a>
