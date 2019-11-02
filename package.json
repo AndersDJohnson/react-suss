@@ -1,0 +1,35 @@
+{
+  "name": "react-suss",
+  "version": "1.0.0",
+  "description": "Collection of React Suspense resources.",
+  "main": "index.js",
+  "scripts": {
+    "build": "babel -d dist src -x .ts",
+    "types": "tsc --noEmit",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "keywords": [],
+  "author": "Anders D. Johnson",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.6.4",
+    "@babel/core": "^7.6.4",
+    "@babel/node": "^7.6.3",
+    "@babel/preset-env": "^7.6.3",
+    "@babel/preset-react": "^7.6.3",
+    "@babel/preset-typescript": "^7.6.0",
+    "@storybook/addon-actions": "^5.2.5",
+    "@storybook/addon-links": "^5.2.5",
+    "@storybook/addons": "^5.2.5",
+    "@storybook/react": "^5.2.5",
+    "@types/requestidlecallback": "^0.3.1",
+    "babel-loader": "^8.0.6",
+    "prettier": "^1.18.2",
+    "react": "0.0.0-experimental-f6b8d31a7",
+    "react-dom": "0.0.0-experimental-f6b8d31a7",
+    "typescript": "^3.6.4"
+  },
+  "dependencies": {}
+}
