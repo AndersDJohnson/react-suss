@@ -1,17 +1,17 @@
 type Resource<ResolveType> = () => ResolveType;
 
 const makeResourceFromPromise = <ResolveType>(promise: Promise<ResolveType>): Resource<ResolveType> => {
-  let value;
-  let error;
-  let resolved;
-  let rejected;
+  let value: ResolveType;
+  let error: any;
+  let resolved: boolean;
+  let rejected: boolean;
 
   promise
-    .then(_value => {
+    .then((_value) => {
       resolved = true;
       value = _value;
     })
-    .catch(_error => {
+    .catch((_error) => {
       rejected = true;
       error = _error;
     });
